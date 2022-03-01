@@ -15,3 +15,12 @@ class Ship(models.Model):
     length=fields.Integer()
     about=fields.Html(string='About')
     owner_ids=fields.Many2many(comodel_name='kasia_training.owner')
+    state=fields.Selection([
+        ('not-registered', 'Not registered'),
+        ('temporary-registrated', 'Temporary registrated'),
+        ('registrated', 'Registrated'),
+        ('unregistrated', 'UnRegistrated')
+    ], default='not-registered')
+
+    def set_state_temporary(self):
+        self.write({'state': 'temporary-registrated'});

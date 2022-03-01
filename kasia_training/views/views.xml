@@ -60,6 +60,14 @@
       <field name="model">kasia_training.ship</field> <!-- valeur de  Ship._name  --> 
       <field name="arch" type="xml">
         <form string="">
+          <header>
+            <button string="Set Temporary"
+                    type="object"
+                    name="set_state_temporary"
+                    attrs="{'invisible': [('state', '=', 'temporary-registrated')]}" />
+            
+            <field name="state" widget="statusbar" clickable="1" />
+          </header>
           <sheet>
             <group>
               <group>
