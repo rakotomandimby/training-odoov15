@@ -15,6 +15,20 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="owner_list_tree">
+      <field name="name">Owner list</field> 
+      <field name="model">kasia_training.owner</field> <!-- valeur de  Owner._name  -->
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="sex"/>
+          <field name="birthDate"/>
+          <field name="about"/>
+        </tree>
+      </field>
+    </record>
+
+    
     <record model="ir.ui.view" id="ship_form" >
       <field name="name">Ship Form</field>
       <field name="model">kasia_training.ship</field> <!-- valeur de  Ship._name  --> 
@@ -40,14 +54,44 @@
         </form>
       </field>
     </record>
-    
+
+
+    <record model="ir.ui.view" id="owner_form" >
+      <field name="name">Owner Form</field>
+      <field name="model">kasia_training.owner</field> <!-- valeur de  Owner._name  --> 
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <group>
+                <field name="name"/>
+                <field name="sex"/>
+              </group>
+              <group>
+                <field name="birthDate"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="About">
+                <field name="about"  />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="kasia_training.ship_list_action">
       <field name="name">Ship List Action</field> <!-- Titre de la page de listing  -->
       <field name="res_model">kasia_training.ship</field> <!-- valeur de  Ship._name  --> 
-      <field name="view_mode">tree,form</field>
-      
+      <field name="view_mode">tree,form</field>     
+    </record>
+    <record model="ir.actions.act_window" id="kasia_training.owner_list_action">
+      <field name="name">Owner List Action</field> <!-- Titre de la page de listing  -->
+      <field name="res_model">kasia_training.owner</field> <!-- valeur de  Ship._name  --> 
+      <field name="view_mode">tree,form</field>     
     </record>
 
 
@@ -58,15 +102,24 @@
         id="ship_menu_root"
          />
     <!-- menu categories -->
-
     <!-- actions -->
     <menuitem name="Ship List"
               id="ship_menu_list"
               parent="ship_menu_root"
               action="kasia_training.ship_list_action"/>
-    <!--
-        <menuitem name="Server to list" id="kasia_training" parent="kasia_training.menu_2"
-        action="kasia_training.action_server"/>
-    -->
+
+
+    <!-- Il faut mettre un top menu : obligatoire                     -->
+    <menuitem
+        name="Owners"
+        id="owner_menu_root"
+         />
+    <!-- menu categories -->
+    <!-- actions -->
+    <menuitem name="Owner List"
+              id="owner_menu_list"
+              parent="owner_menu_root"
+              action="kasia_training.owner_list_action"/>
+
   </data>
 </odoo>
