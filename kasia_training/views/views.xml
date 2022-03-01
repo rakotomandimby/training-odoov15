@@ -28,6 +28,19 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="visit_list_tree">
+      <field name="name">Visit list</field> 
+      <field name="model">kasia_training.visit</field> <!-- valeur de  Visit._name  -->
+      <field name="arch" type="xml">
+        <tree>
+          <field name="type"/>
+          <field name="occurDate"/>
+          <field name="endValidityDate"/>
+          <field name="about"/>
+        </tree>
+      </field>
+    </record>
+
     
     <record model="ir.ui.view" id="ship_form" >
       <field name="name">Ship Form</field>
@@ -81,6 +94,32 @@
       </field>
     </record>
 
+
+    <record model="ir.ui.view" id="visit_form" >
+      <field name="name">Visit Form</field>
+      <field name="model">kasia_training.visit</field> <!-- valeur de  Visit._name  --> 
+      <field name="arch" type="xml">
+        <form string="">
+          <sheet>
+            <group>
+              <group>
+                <field name="type"/>
+              </group>
+              <group>
+                <field name="occurDate"/>
+                <field name="endValidityDate"/>
+              </group>
+            </group>
+            <notebook>
+              <page string="About">
+                <field name="about"  />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="kasia_training.ship_list_action">
@@ -93,33 +132,35 @@
       <field name="res_model">kasia_training.owner</field> <!-- valeur de  Ship._name  --> 
       <field name="view_mode">tree,form</field>     
     </record>
+    <record model="ir.actions.act_window" id="kasia_training.visit_list_action">
+      <field name="name">Visit List Action</field> <!-- Titre de la page de listing  -->
+      <field name="res_model">kasia_training.visit</field> <!-- valeur de  Visit._name  --> 
+      <field name="view_mode">tree,form</field>     
+    </record>
 
 
     <!-- Top menu item -->
+    <!-- menu categories -->
+
     <!-- Il faut mettre un top menu : obligatoire                     -->
     <menuitem
-        name="Ships"
-        id="ship_menu_root"
+        name="APMF"
+        id="apmf_menu_root"
          />
     <!-- menu categories -->
     <!-- actions -->
     <menuitem name="Ship List"
               id="ship_menu_list"
-              parent="ship_menu_root"
+              parent="apmf_menu_root"
               action="kasia_training.ship_list_action"/>
-
-
-    <!-- Il faut mettre un top menu : obligatoire                     -->
-    <menuitem
-        name="Owners"
-        id="owner_menu_root"
-         />
-    <!-- menu categories -->
-    <!-- actions -->
     <menuitem name="Owner List"
               id="owner_menu_list"
-              parent="owner_menu_root"
+              parent="apmf_menu_root"
               action="kasia_training.owner_list_action"/>
+    <menuitem name="Visit List"
+              id="visit_menu_list"
+              parent="apmf_menu_root"
+              action="kasia_training.visit_list_action"/>
 
   </data>
 </odoo>

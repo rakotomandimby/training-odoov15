@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_ship,Ship Access for All,model_kasia_training_ship,base.group_user,1,1,1,1
 access_owner,Owner Access for All,model_kasia_training_owner,base.group_user,1,1,1,1
+access_visit,Visit Access for All,model_kasia_training_visit,base.group_user,1,1,1,1
