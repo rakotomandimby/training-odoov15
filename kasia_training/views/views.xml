@@ -43,6 +43,17 @@
       </field>
     </record>
 
+    <record model="ir.ui.view" id="visit_list_calendar">
+      <field name="name">Visit list Calendar</field> 
+      <field name="model">kasia_training.visit</field> <!-- valeur de  Visit._name  -->
+      <field name="arch" type="xml">
+        <calendar date_start="occurDate" date_stop="endValidityDate" mode="month">
+          <field name="about"/>
+          <field name="type"/>
+        </calendar>
+      </field>
+    </record>
+
     
     <record model="ir.ui.view" id="ship_form" >
       <field name="name">Ship Form</field>
@@ -84,7 +95,11 @@
                 <field name="sex"/>
               </group>
               <group>
-                <field name="ship_ids"/>
+                <field name="ship_ids">
+                  <tree>
+                    <field name="name"/>
+                  </tree>
+                </field>
                 <field name="birthDate"/>
               </group>
             </group>
@@ -139,7 +154,7 @@
     <record model="ir.actions.act_window" id="kasia_training.visit_list_action">
       <field name="name">Visit List Action</field> <!-- Titre de la page de listing  -->
       <field name="res_model">kasia_training.visit</field> <!-- valeur de  Visit._name  --> 
-      <field name="view_mode">tree,form</field>     
+      <field name="view_mode">tree,calendar,form</field>     
     </record>
 
 
