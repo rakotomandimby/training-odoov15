@@ -12,3 +12,7 @@ class Owner(models.Model):
         ('all', 'MaleFemale')])
     birthDate = fields.Date()
     about=fields.Html(string='About')
+    ship_ids=fields.Many2many(
+        comodel_name='kasia_training.ship',
+        string='Ships owned'
+    )

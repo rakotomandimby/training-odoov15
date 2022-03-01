@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="owner_id"/>
+          <field name="owner_ids"/>
           <field name="type"/>
           <field name="buildDate"/>
           <field name="length"/>
@@ -22,6 +22,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
+          <field name="ship_ids"/>
           <field name="sex"/>
           <field name="birthDate"/>
           <field name="about"/>
@@ -62,7 +63,7 @@
             <notebook>
               <page string="About">
                 <field name="about"  />
-                <field name="owner_id"/>
+                <field name="owner_ids"/>
               </page>
             </notebook>
           </sheet>
@@ -83,6 +84,7 @@
                 <field name="sex"/>
               </group>
               <group>
+                <field name="ship_ids"/>
                 <field name="birthDate"/>
               </group>
             </group>
