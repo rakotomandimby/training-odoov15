@@ -14,3 +14,4 @@ class Ship(models.Model):
     buildDate = fields.Date()
     length=fields.Integer()
     about=fields.Html(string='About')
+    owner_id=fields.Many2one(comodel_name='kasia_training.owner')
